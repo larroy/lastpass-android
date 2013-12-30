@@ -154,6 +154,7 @@ public class UserLoginTaskFactory {
 				stringId = R.string.login_progress_decrypting;
 				break;
 			default:
+				LOGGER.error("onProgressUpdate: illegal state");
 				throw new IllegalStateException();
 			}
 			this.progressDialog.setMessage(context.getString(stringId));

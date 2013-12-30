@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="ime_name">Lastpass Keyboard (nhinds)</string>
+    <string name="ime_name">Lastpass Keyboard</string>
     
     <string name="choose_username">Choose Username</string>
     <string name="choose_password">Choose Password</string>

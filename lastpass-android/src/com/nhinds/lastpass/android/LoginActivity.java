@@ -115,6 +115,7 @@ public class LoginActivity extends Activity implements UserLoginListener {
 				this.mPasswordView.setError(errorFromIntent);
 			}
 		}
+		android.os.Debug.waitForDebugger();
 	}
 	
 	private void addListener(final int textId, final int buttonId, final Runnable action) {
@@ -143,9 +144,13 @@ public class LoginActivity extends Activity implements UserLoginListener {
 	 * actual login attempt is made.
 	 */
 	private void attemptLogin() {
+		LOGGER.debug("attemptLogin");
+		/*
 		if (this.mAuthTaskFactory != null) {
+			LOGGER.debug("");
 			return;
 		}
+		*/
 
 		if (validateNotEmpty(this.mEmailView, this.mPasswordView)) {
 			String email = this.mEmailView.getText().toString();
@@ -166,7 +171,7 @@ public class LoginActivity extends Activity implements UserLoginListener {
 	}
 
 	private void attemptOtpLogin() {
-		if (this.mAuthTaskFactory != null) {
+		if (this.mAuthTaskFactory == null) {
 			throw new IllegalStateException("No login task factory found");
 		}
 
@@ -188,7 +193,7 @@ public class LoginActivity extends Activity implements UserLoginListener {
 	
 	@Override
 	public void loginCompleted(final UserLoginResult loginResult) {
-		this.mAuthTaskFactory = null;
+		//this.mAuthTaskFactory = null;
 		if (loginResult.passwordStore != null) {
 			SoftKeyboard.setPasswordStore(loginResult.passwordStore);
 			finish();
