@@ -40,9 +40,25 @@ public class LoginActivityTest extends UiAutomatorTestCase {
 	
 	public void testActivityInstalled() throws UiObjectNotFoundException {
 	      getUiDevice().pressHome();
-	      UiObject allAppsButton = new UiObject(new UiSelector().description("Apps"));
-	      allAppsButton.clickAndWaitForNewWindow();
-	      UiObject appsTab = new UiObject(new UiSelector().text("Apps"));
+	      UiObject chrome = new UiObject(new UiSelector().description("Apps"));
+	      chrome.clickAndWaitForNewWindow();
+	      
+	      UiScrollable appViews = new UiScrollable(new UiSelector().scrollable(true));
+	      appViews.setAsHorizontalList();
+	      
+	      
+	      UiObject notesApp = appViews.getChildByText(new UiSelector()
+	         .className(android.widget.TextView.class.getName()), 
+	         "Notes");
+	      notesApp.clickAndWaitForNewWindow();
+	      
+	      getUiDevice().pressMenu();
+	      
 
+	      UiObject add_note = new UiObject(new UiSelector().text("Add note"));
+	      add_note.click();
+	      getUiDevice().swipe(442, 1120, 440, 1120, 800);
+	      
+	      
 	}
 }
