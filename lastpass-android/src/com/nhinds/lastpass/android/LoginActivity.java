@@ -17,6 +17,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.TextView;
+//import android.os.Debug;
 
 import com.nhinds.lastpass.android.UserLoginTaskFactory.UserLoginListener;
 import com.nhinds.lastpass.android.UserLoginTaskFactory.UserLoginResult;
@@ -115,7 +116,8 @@ public class LoginActivity extends Activity implements UserLoginListener {
 				this.mPasswordView.setError(errorFromIntent);
 			}
 		}
-		android.os.Debug.waitForDebugger();
+		//android.os.Debug.waitForDebugger();
+		//Debug.startMethodTracing("lastpass_trace");
 	}
 	
 	private void addListener(final int textId, final int buttonId, final Runnable action) {
